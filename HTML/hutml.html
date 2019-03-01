@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <style>#meumap {width: 100%; height: 700px;}</style>
+        <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+        <script>
+        function init() {
+            var mapDiv = document.getElementById("meumap");
+            var mapOptions = {
+                center: new google.maps.LatLng (-23.3515546,-51.87849283),
+                zoom: 15,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(mapDiv, mapOptions);
+
+            var destinations = new google.maps.MVCArray();
+            destinations.push( new google.maps.LatLng(-23.34335911,-51.87722683));
+            destinations.push( new google.maps.LatLng(-23.34735841,-51.87276363));
+            destinations.push( new google.maps.LatLng(-23.34570355,-51.87111139));
+            destinations.push( new google.maps.LatLng(-23.34544743,-51.87199116));
+            destinations.push( new google.maps.LatLng(-23.34517161,-51.8726777));
+            destinations.push( new google.maps.LatLng(-23.34428014,-51.8728441));
+            
+           
+            destinations.push( new google.maps.LatLng(-23.34461999,-51.87275827));
+            destinations.push( new google.maps.LatLng(-23.34408806,-51.87306404));
+            destinations.push( new google.maps.LatLng(-23.34196031,-51.87555313));
+            var polygonOptions = {path: destinations, strokeColor:"#ff0000",fillColor:"#00ff00"};
+            var polygon = new google.maps.Polygon(polygonOptions);
+
+            polygon.setMap(map);
+        }
+        window.onload = init;
+        </script>
+    </head>
+    <body>
+        <h2>Meu map</h2>
+        <div id="meumap"></div>
+    </body>
+</html>
